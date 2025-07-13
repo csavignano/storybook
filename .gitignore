@@ -1,29 +1,13 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+# Composer
+/vendor/
+/composer.lock
 
-node_modules
-dist
-dist-ssr
-*.local
+# Drupal
+/web/core/
+/web/modules/contrib/
+/web/themes/contrib/
+/web/sites/default/settings.php
+/web/sites/default/files/
 
-# Ignores storybook static assets.
-storybook
-storybook-static
-
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-dependencyGraph.json
+# DDEV
+.ddev/secrets/
