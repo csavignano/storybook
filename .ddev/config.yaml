@@ -15,9 +15,6 @@ web_environment: []
 corepack_enable: true
 
 # Codespaces settings
-host_webserver_port: "8080"
-host_https_port: "8443"
-host_db_port: "3306"
 router_http_port: "8080"
 router_https_port: "8443"
 performance_mode: mutagen
