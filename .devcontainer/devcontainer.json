@@ -1,0 +1,16 @@
+{
+  "name": "Storybook",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "postCreateCommand": "ddev start",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ddev.ddev"
+      ]
+    }
+  },
+  "forwardPorts": [8080, 8443],
+  "remoteUser": "vscode"
+}
