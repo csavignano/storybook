@@ -23,10 +23,37 @@ sudo apt-get update && sudo apt-get install -y ddev
 
 # Start Docker service
 echo "🐳 Starting Docker service..."
-sudo service docker start
+# Check if Docker is already running
+if ! docker info >/dev/null 2>&1; then
+    # Try systemctl first (preferred method)
+    if sudo systemctl start docker 2>/dev/null; then
+        echo "✅ Docker started with systemctl"
+    else
+        # Fallback to service command if systemctl fails
+        if sudo service docker start 2>/dev/null; then
+            echo "✅ Docker started with service command"
+        else
+            echo "⚠️ Docker may already be running or failed to start"
+        fi
+    fi
+else
+    echo "✅ Docker is already running"
+fi
 
 # Make sure vscode user can use Docker
 sudo usermod -aG docker vscode
+
+# Wait a moment for Docker to be fully ready
+sleep 2
+
+# Verify Docker is working
+echo "🔍 Verifying Docker installation..."
+if docker info >/dev/null 2>&1; then
+    echo "✅ Docker is working correctly"
+else
+    echo "❌ Docker is not responding - you may need to restart the container"
+    # Don't exit here, let the rest of the setup continue
+fi
 
 # Navigate to the workspace (your existing project)
 cd /workspaces/$(basename "$GITHUB_REPOSITORY")
