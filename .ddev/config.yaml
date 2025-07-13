@@ -23,7 +23,7 @@ hooks:
   post-start:
     - exec: |
         echo "📦 Installing Composer dependencies..."
-        composer install --no-interaction --prefer-dist --optimize-autoloader
+        ddev composer install --no-interaction --prefer-dist --optimize-autoloader
         echo "✅ Composer install complete"
     - exec-host: |
         echo "🔄 Waiting for DDEV to be fully ready..."
