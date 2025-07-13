@@ -3,6 +3,17 @@ set -e
 
 echo "🚀 Starting DDEV Drupal 11 setup..."
 
+# Install required packages
+echo "📦 Installing required packages..."
+sudo apt-get update
+sudo apt-get install -y curl wget gnupg2 software-properties-common apt-transport-https ca-certificates
+
+# Install Composer (since we removed it from PHP feature to save space)
+echo "🎼 Installing Composer..."
+curl -sS https://getcomposer.org/installer | php
+sudo mv composer.phar /usr/local/bin/composer
+sudo chmod +x /usr/local/bin/composer
+
 # Install DDEV
 echo "📦 Installing DDEV..."
 curl -fsSL https://pkg.ddev.com/apt/gpg.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/ddev.gpg > /dev/null
@@ -14,8 +25,8 @@ sudo apt-get update && sudo apt-get install -y ddev
 echo "🐳 Starting Docker service..."
 sudo service docker start
 
-# Make sure codespace user can use Docker
-sudo usermod -aG docker codespace
+# Make sure vscode user can use Docker
+sudo usermod -aG docker vscode
 
 # Navigate to the workspace (your existing project)
 cd /workspaces/$(basename "$GITHUB_REPOSITORY")

@@ -1,34 +1,27 @@
 {
 	"name": "DDEV Drupal 11 Development",
-	"image": "mcr.microsoft.com/devcontainers/universal:2-linux",
+	"image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
 	"features": {
 		"ghcr.io/devcontainers/features/docker-in-docker:2": {
 			"version": "latest",
 			"enableNonRootDocker": "true"
 		},
 		"ghcr.io/devcontainers/features/php:1": {
-			"version": "8.3",
-			"installComposer": "true"
+			"version": "8.3"
 		},
 		"ghcr.io/devcontainers/features/node:1": {
-			"version": "20"
+			"version": "22"
 		}
 	},
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"ms-vscode.vscode-json",
-				"bradlc.vscode-tailwindcss",
 				"bmewburn.vscode-intelephense-client",
-				"mrmlnc.vscode-apache",
-				"ms-vscode.vscode-typescript-next",
-				"formulahendry.auto-rename-tag",
-				"esbenp.prettier-vscode"
+				"esbenp.prettier-vscode",
+				"ms-vscode.vscode-json"
 			],
 			"settings": {
 				"php.validate.executablePath": "/usr/local/bin/php",
-				"php.suggest.basic": false,
-				"intelephense.files.maxSize": 5000000,
 				"files.associations": {
 					"*.module": "php",
 					"*.install": "php",
@@ -53,5 +46,5 @@
 		}
 	},
 	"postCreateCommand": "bash .devcontainer/post-create.sh",
-	"remoteUser": "codespace"
+	"remoteUser": "vscode"
 }
