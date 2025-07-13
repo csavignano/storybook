@@ -43,8 +43,11 @@ fi
 # Make sure vscode user can use Docker
 sudo usermod -aG docker vscode
 
+# Refresh group membership for current session
+newgrp docker
+
 # Wait a moment for Docker to be fully ready
-sleep 2
+sleep 5
 
 # Verify Docker is working
 echo "🔍 Verifying Docker installation..."
