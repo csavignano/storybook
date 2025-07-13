@@ -1,21 +1,22 @@
 {
-	"image": "mcr.microsoft.com/devcontainers/universal:2",
-	"features": {
-		"ghcr.io/ddev/ddev/install-ddev:latest": {}
+	"name": "Storybook",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": "."
 	},
-	"portsAttributes": {
-		"3306": {
-			"label": "database"
-		},
-		"8027": {
-			"label": "mailpit"
-		},
-		"8080": {
-			"label": "web http"
-		},
-		"8443": {
-			"label": "web https"
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-azuretools.vscode-docker",
+				"dbaeumer.vscode-eslint",
+				"esbenp.prettier-vscode"
+			]
 		}
 	},
-	"postCreateCommand": "chmod +x .devcontainer/setup.sh && .devcontainer/setup.sh"
+	"postCreateCommand": "ddev start",
+	"remoteUser": "vscode",
+	"features": {
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {}
+	},
+	"mounts": ["source=ddev-global-cache,target=/home/vscode/.ddev,volume"]
 }
