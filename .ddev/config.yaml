@@ -21,8 +21,34 @@ performance_mode: mutagen
 
 hooks:
   post-start:
-    - exec-host: "ddev import-db --file=db/site.sql.gz  && ddev drush cim -y && ddev drush cr"
-    - exec: "echo ✅ DB import After Start......."
+    - exec: |
+        echo "📦 Installing Composer dependencies..."
+        composer install --no-interaction --prefer-dist --optimize-autoloader
+        echo "✅ Composer install complete"
+    - exec-host: |
+        echo "🔄 Waiting for DDEV to be fully ready..."
+        sleep 10
+        echo "📥 Importing database..."
+        if [ -f "db/site.sql.gz" ]; then
+          ddev import-db --file=db/site.sql.gz
+          echo "✅ Database imported successfully"
+        else
+          echo "❌ Database file not found at db/site.sql.gz"
+        fi
+        echo "⚙️ Importing configuration..."
+        ddev drush cim -y
+        echo "🧹 Clearing cache..."
+        ddev drush cr
+        echo "✅ Post-start setup complete!"
+    - exec: "echo '✅ DDEV environment is ready for development'"
 
   pre-stop:
-     - exec-host: "ddev drush cr && ddev drush cex -y && ddev drush sql-dump --gzip --result-file=../db/site.sql"
+    - exec-host: |
+        echo "🧹 Clearing cache before export..."
+        ddev drush cr
+        echo "⚙️ Exporting configuration..."
+        ddev drush cex -y
+        echo "💾 Exporting database..."
+        mkdir -p db
+        ddev drush sql-dump --gzip --result-file=../db/site.sql
+        echo "✅ Pre-stop backup complete!"
