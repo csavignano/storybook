@@ -21,8 +21,9 @@
 		}
 	},
 	"forwardPorts": [8080, 8025, 8036],
-	"updateContentCommand": "composer install",
+	"initializeCommand": "./.devcontainer/initialize.sh",
 	"postCreateCommand": "bash .devcontainer/post-create.sh",
+	"postStartCommand": "bash ./.devcontainer/post-start.sh",
 	"remoteUser": "vscode",
 	"hostRequirements": {
 		"memory": "8gb"
