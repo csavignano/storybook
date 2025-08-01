@@ -26,6 +26,19 @@ wait_for_docker() {
     echo "✅ Docker is ready"
 }
 
+# Function to handle composer installation
+handle_composer() {
+    echo "📦 Installing Composer dependencies..."
+    if [ -f "composer.lock" ]; then
+        echo "🔄 Installing from lock file..."
+        composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
+    else
+        echo "⚠️ Lock file not found, this may take longer..."
+        composer install --no-interaction --prefer-dist --optimize-autoloader
+    fi
+    echo "✅ Composer setup complete"
+}
+
 # Function to wait for DDEV with timeout
 wait_for_ddev() {
     echo "🚀 Starting DDEV environment..."
@@ -56,6 +69,9 @@ main() {
     if ! docker info > /dev/null 2>&1; then
         wait_for_docker
     fi
+
+    # Install Composer dependencies
+    handle_composer
 
     if ! ddev status | grep -q "running"; then
         wait_for_ddev
