@@ -4,6 +4,10 @@ set -e
 # Install DDEV
 curl -fsSL https://raw.githubusercontent.com/drud/ddev/master/scripts/install_ddev.sh | bash
 
+# Disable DDEV analytics prompt
+mkdir -p ~/.ddev
+echo "instrumentation_opt_in: false" > ~/.ddev/global_config.yaml
+
 # Install Composer
 curl -sS https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
