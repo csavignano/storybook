@@ -49,8 +49,6 @@ ddev drush cr && ddev drush cex -y && ddev drush sql-dump --gzip --result-file=.
 ## Available Services
 
 - **Drupal Site**: Port 8080 (auto-opens in browser)
-- **Mailhog**: Port 8025 (email testing)
-- **PhpMyAdmin**: Port 8036 (database management)
 
 ## Common Commands
 
