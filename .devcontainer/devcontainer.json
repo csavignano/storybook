@@ -20,7 +20,7 @@
 			"extensions": ["esbenp.prettier-vscode", "ms-vscode.vscode-json"]
 		}
 	},
-	"forwardPorts": [8080, 8025, 8036],
+	"forwardPorts": [8080, 8036],
 	"initializeCommand": "./.devcontainer/initialize.sh",
 	"postCreateCommand": "bash .devcontainer/post-create.sh",
 	"postStartCommand": "bash ./.devcontainer/post-start.sh",
