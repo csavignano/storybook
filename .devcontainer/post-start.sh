@@ -1,27 +1,40 @@
 #!/bin/bash
 set -e
 
-# Navigate to the workspace (your existing project)
+# Navigate to the workspace
 cd /workspaces/$(basename "$GITHUB_REPOSITORY")
 
-# Start Docker service if not running
-if ! docker info > /dev/null 2>&1; then
+# Function to wait for Docker
+wait_for_docker() {
     echo "🐳 Starting Docker service..."
     sudo service docker start
-    sleep 5
+    # Wait for Docker to be available
+    while ! docker info > /dev/null 2>&1; do
+        echo "⏳ Waiting for Docker..."
+        sleep 2
+    done
+    echo "✅ Docker is ready"
+}
+
+# Function to wait for DDEV
+wait_for_ddev() {
+    echo "🚀 Starting DDEV environment..."
+    ddev start
+    # Wait for DDEV to be fully ready
+    while ! ddev describe >/dev/null 2>&1; do
+        echo "⏳ Waiting for DDEV..."
+        sleep 2
+    done
+    echo "✅ DDEV is ready"
+}
+
+# Main execution
+if ! docker info > /dev/null 2>&1; then
+    wait_for_docker
 fi
 
-# Check if DDEV is already running
 if ! ddev status | grep -q "running"; then
-    echo "🚀 Starting DDEV environment..."
-    echo "Your post-start hooks will automatically:"
-    echo "  - Import database from db/site.sql.gz"
-    echo "  - Import configuration with 'drush cim -y'"
-    echo "  - Clear cache with 'drush cr'"
-    echo ""
-    ddev start
-else
-    echo "✅ DDEV is already running"
+    wait_for_ddev
 fi
 
 # Display useful information
@@ -34,8 +47,8 @@ echo "💾 PRE-STOP: Clear Cache → Export Config → Backup Database"
 echo ""
 echo "Useful commands:"
 echo "- ddev describe        # Show project info and URLs"
-echo "- ddev ssh             # SSH into the web container"
-echo "- ddev composer        # Run Composer commands"
-echo "- ddev drush           # Run Drush commands"
-echo "- ddev logs            # View container logs"
-echo "- ddev drush uli       # Generate one-time login link"
+echo "- ddev ssh            # SSH into the web container"
+echo "- ddev composer       # Run Composer commands"
+echo "- ddev drush         # Run Drush commands"
+echo "- ddev logs          # View container logs"
+echo "- ddev drush uli     # Generate one-time login link"

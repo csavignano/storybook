@@ -14,27 +14,46 @@ composer_version: "2"
 web_environment: []
 corepack_enable: true
 
+# Performance optimizations
+performance_mode: mutagen
+
+# Resource and cache optimizations
+webimage_extra_packages: ["php-apcu"]
+nodejs_version: "22"
+
 # Codespaces settings
 router_http_port: "8080"
 router_https_port: "8443"
-performance_mode: mutagen
 
 hooks:
   post-start:
     - exec: |
-        echo "📦 Installing Composer dependencies..."
-        ddev composer install --no-interaction --prefer-dist --optimize-autoloader
-        echo "✅ Composer install complete"
+        if [ ! -d "vendor" ] || [ ! -f "composer.lock" ]; then
+          echo "📦 Installing Composer dependencies..."
+          composer install --no-interaction --prefer-dist --optimize-autoloader
+        else
+          echo "♻️ Checking for composer updates..."
+          composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
+        fi
+        echo "✅ Composer setup complete"
     - exec-host: |
         echo "🔄 Waiting for DDEV to be fully ready..."
-        sleep 10
+        # Check if DDEV is responding
+        until ddev describe >/dev/null 2>&1; do
+          echo "⏳ Waiting for DDEV..."
+          sleep 2
+        done
+
         echo "📥 Importing database..."
         if [ -f "db/site.sql.gz" ]; then
           ddev import-db --file=db/site.sql.gz
           echo "✅ Database imported successfully"
         else
           echo "❌ Database file not found at db/site.sql.gz"
+          echo "⚙️ Running site install..."
+          ddev drush site-install -y
         fi
+
         echo "⚙️ Importing configuration..."
         ddev drush cim -y
         echo "🧹 Clearing cache..."

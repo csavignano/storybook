@@ -4,10 +4,12 @@
 	"features": {
 		"ghcr.io/devcontainers/features/docker-in-docker:2": {
 			"version": "latest",
-			"enableNonRootDocker": "true"
+			"enableNonRootDocker": "true",
+			"moby": true
 		},
 		"ghcr.io/devcontainers/features/php:1": {
-			"version": "8.3"
+			"version": "8.3",
+			"installComposer": false
 		},
 		"ghcr.io/devcontainers/features/node:1": {
 			"version": "22"
@@ -15,36 +17,14 @@
 	},
 	"customizations": {
 		"vscode": {
-			"extensions": [
-				"bmewburn.vscode-intelephense-client",
-				"esbenp.prettier-vscode",
-				"ms-vscode.vscode-json"
-			],
-			"settings": {
-				"php.validate.executablePath": "/usr/local/bin/php",
-				"files.associations": {
-					"*.module": "php",
-					"*.install": "php",
-					"*.inc": "php",
-					"*.profile": "php",
-					"*.theme": "php"
-				}
-			}
+			"extensions": ["esbenp.prettier-vscode", "ms-vscode.vscode-json"]
 		}
 	},
 	"forwardPorts": [8080, 8025, 8036],
-	"portsAttributes": {
-		"8080": {
-			"label": "Drupal Site",
-			"onAutoForward": "openBrowser"
-		},
-		"8025": {
-			"label": "Mailhog"
-		},
-		"8036": {
-			"label": "PhpMyAdmin"
-		}
-	},
+	"updateContentCommand": "composer install",
 	"postCreateCommand": "bash .devcontainer/post-create.sh",
-	"remoteUser": "vscode"
+	"remoteUser": "vscode",
+	"hostRequirements": {
+		"memory": "8gb"
+	}
 }
