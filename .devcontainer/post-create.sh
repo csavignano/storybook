@@ -6,7 +6,7 @@ curl -fsSL https://raw.githubusercontent.com/drud/ddev/master/scripts/install_dd
 
 # Disable DDEV analytics prompt
 mkdir -p ~/.ddev
-echo "instrumentation_opt_in: false" > ~/.ddev/global_config.yaml
+cp .devcontainer/ddev-global-config/global_config.yaml ~/.ddev/
 
 # Install Composer
 curl -sS https://getcomposer.org/installer | php
