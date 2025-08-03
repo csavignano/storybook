@@ -1,3 +1,27 @@
+# Local Development Requirements
+
+Before using this project, ensure you have the following requirements installed on your host machine:
+
+## Installing Node Version Manager (NVM)
+
+1. Install NVM using curl:
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+```
+
+2. Add these lines to your shell profile (`~/.zshrc` or `~/.bash_profile`):
+```bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+```
+
+3. Reload your profile and verify installation:
+```bash
+source ~/.zshrc  # or source ~/.bash_profile
+nvm --version
+```
+
 # DDEV Drupal 11 Codespace
 
 This GitHub Codespace provides a complete DDEV development environment for your existing Drupal 11 project with automated data import via DDEV hooks.

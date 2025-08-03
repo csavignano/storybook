@@ -4,11 +4,6 @@ set -e
 # Install DDEV
 curl -fsSL https://raw.githubusercontent.com/drud/ddev/master/scripts/install_ddev.sh | bash
 
-# Set up DDEV global config
-mkdir -p /home/vscode/.ddev
-cp .devcontainer/ddev-global-config/global_config.yaml /home/vscode/.ddev/
-chown -R vscode:vscode /home/vscode/.ddev
-
 # Install Composer
 curl -sS https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
