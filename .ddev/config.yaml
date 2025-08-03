@@ -11,15 +11,15 @@ database:
     version: "10.11"
 use_dns_when_possible: true
 composer_version: "2"
-web_environment: []
 corepack_enable: true
 
 # Performance optimizations
 performance_mode: mutagen
 
 # Resource and cache optimizations
-webimage_extra_packages: ["php-apcu"]
+webimage_extra_packages: ["php-apcu", "xdg-utils"]
 nodejs_version: "22"
+bind_all_interfaces: true
 
 # Codespaces settings
 router_http_port: "8080"
@@ -27,6 +27,11 @@ router_https_port: "8443"
 
 hooks:
   post-start:
+    - exec: |
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+        export NVM_DIR="$HOME/.nvm"
+        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+        echo "✅ NVM installed successfully"
     - exec: |
         if [ ! -d "vendor" ] || [ ! -f "composer.lock" ]; then
           echo "📦 Installing Composer dependencies..."
