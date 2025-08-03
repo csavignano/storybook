@@ -4,9 +4,10 @@ set -e
 # Install DDEV
 curl -fsSL https://raw.githubusercontent.com/drud/ddev/master/scripts/install_ddev.sh | bash
 
-# Disable DDEV analytics prompt
-mkdir -p ~/.ddev
-cp .devcontainer/ddev-global-config/global_config.yaml ~/.ddev/
+# Set up DDEV global config
+mkdir -p /home/vscode/.ddev
+cp .devcontainer/ddev-global-config/global_config.yaml /home/vscode/.ddev/
+chown -R vscode:vscode /home/vscode/.ddev
 
 # Install Composer
 curl -sS https://getcomposer.org/installer | php
