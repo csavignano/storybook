@@ -8,15 +8,15 @@
 }
 
 html {
-  accent-color: var(--accent-color, var(--blue-300));
-  background-color: var(--bg-color, var(--white));
-  caret-color: var(--caret-color, var(--blue-300));
+  accent-color: var(--blue-300);
+  background-color: var(--white);
+  caret-color: var(--blue-300);
   color: var(--color, var(--grey-900));
-  font-size: 100%; /* Sets 1rem to be equal to 16px */
+  font-size: 100%;
   font-style: normal;
   font-weight: var(--font-weight-400);
-  scroll-padding-top: var(--scroll-padding-top, 150px);
-  scrollbar-color: var(--scrollbar-color, var(--blue-300)) transparent;
+  scroll-padding-top: 150px;
+  scrollbar-color: var(--blue-300) transparent;
   text-size-adjust: 100%;
 
   &:has(dialog[open]) {
@@ -26,7 +26,7 @@ html {
 
 body {
   font-family: var(--font-primary);
-  font-size: var(--body-default); /* Global default body text size of 18px. */
+  font-size: var(--body-default);
   -webkit-font-smoothing: antialiased;
   line-height: var(--leading-normal);
   margin: 0;
@@ -206,13 +206,13 @@ textarea {
 
 input::placeholder,
 textarea::placeholder {
-  color: var(--placeholder-color, var(--grey-500));
+  color: var(--grey-500);
   opacity: 100%;
 }
 
 ::selection {
-  background-color: var(--selection-bg-color, var(--blue-700));
-  color: var(--selection-color, var(--white));
+  background-color: var(--blue-700);
+  color: var(--white);
 }
 
 button,

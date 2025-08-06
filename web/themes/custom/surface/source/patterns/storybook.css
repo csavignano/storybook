@@ -50,22 +50,19 @@
 }
 
 /* Brand & Color Demo */
-.demo-brands,
-.demo-colors {
+.demo-brands {
   display: grid;
   gap: var(--size-8);
   justify-items: flex-start;
   padding-block: var(--size-12);
 
-  .brand-demo,
-  .color-demo {
+  .brand-demo {
     display: grid;
     gap: var(--size-4);
     grid-template-columns: repeat(auto-fill, minmax(max(var(--size-40), 10rem), 1fr));
   }
 
-  .brand-demo__swatch,
-  .color-demo__swatch {
+  .brand-demo__swatch {
     .swatch {
       aspect-ratio: var(--ratio-box);
       border-color: var(--grey-300);
