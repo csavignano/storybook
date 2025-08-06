@@ -133,9 +133,9 @@
   .bg-venice-canal &,
   .bg-santa-barbara-sand & {
     .button {
-      background-color: var(--ucla-yellow);
-      border-color: var(--ucla-yellow);
-      color: var(--midnight-joshua-tree);
+      background-color: var(--gold-500);
+      border-color: var(--gold-500);
+      color: var(--blue-700);
     }
   }
 }

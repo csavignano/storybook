@@ -18,7 +18,7 @@
   overflow: hidden;
 
   .title__link {
-    color: var(--ucla-blue);
+    color: var(--blue-300);
 
     &:hover {
       color: var(--gray-900);
@@ -44,7 +44,7 @@
 
 /* This label is only visible when the cards are within the Curated content component. */
 .card__content-type {
-  background-color: var(--ucla-blue);
+  background-color: var(--blue-300);
   color: var(--white);
   display: none;
   font-weight: var(--font-weight-600);
@@ -103,13 +103,13 @@ meta_description/subtitle. */
   margin-block-end: var(--size-3);
 
   a {
-    color: var(--ucla-blue);
+    color: var(--blue-300);
     display: flex;
   }
 
   svg {
     block-size: 1em;
-    color: var(--ucla-blue);
+    color: var(--blue-300);
     display: inline-block;
     font-size: inherit;
     inline-size: 1em;
@@ -167,6 +167,6 @@ meta_description/subtitle. */
   margin-block-start: var(--size-3);
 
   &:hover {
-    color: var(--ucla-blue);
+    color: var(--blue-300);
   }
 }

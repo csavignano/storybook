@@ -1,0 +1,45 @@
+/* Global Typography settings. */
+
+/* Big title font (Balboa Medium). */
+h1.big-title {
+  font-family: var(--font-tertiary);
+  font-size: clamp(var(--big-title-min), 2.618rem + 2.353vw, var(--big-title-max));
+  font-style: normal;
+  font-weight: var(--font-weight-500);
+  line-height: var(--leading-none);
+}
+
+/* Font size for regular headings. */
+h1 {
+  font-size: clamp(var(--h1-min), 1.176rem + 3.529vw, var(--h1-max));
+  line-height: var(--leading-none);
+}
+
+h2 {
+  font-size: clamp(var(--h2-min), 1.559rem + 1.176vw, var(--h2-max));
+}
+
+h3 {
+  font-size: clamp(var(--h3-min), 1.059rem + 1.176vw, var(--h3-max));
+}
+
+h4 {
+  font-size: clamp(var(--h4-min), 0.794rem + 0.882vw, var(--h4-max));
+}
+
+/* For demo purposes only while we define a working solution. /*
+/ * Per design specs. */
+.eyebrow-font-style {
+  font-size: var(--text-sm);
+  font-style: normal;
+  font-weight: var(--font-weight-800);
+  line-height: var(--leading-tight);
+  text-transform: uppercase;
+}
+
+/* Per new brand specs. */
+blockquote {
+  font-family: var(--font-secondary);
+  font-style: italic;
+  letter-spacing: var(--tracking-wide);
+}

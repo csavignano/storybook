@@ -20,7 +20,7 @@ regions:
   theme: Theme
 
 ckeditor5-stylesheets:
-  - dist/css/global.css
+  - dist/css/base.css
   - dist/css/button.css
 
 components:
