@@ -3,11 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.page.field_content
+    - field.field.node.page.field_introduction
     - node.type.page
   module:
-    - entity_reference_revisions
     - path
+    - text
 id: node.page.default
 targetEntityType: node
 bundle: page
@@ -19,14 +19,12 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_content:
-    type: entity_reference_revisions_autocomplete
+  field_introduction:
+    type: text_textarea
     weight: 121
     region: content
     settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
   path:

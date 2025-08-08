@@ -33,18 +33,6 @@
         'modifier': date.modifier,
         'date': date.date,
       } only %}
-
-      {# If there are upcoming instances of an event, display `+ more dates`
-      next to the event date to show users this is a recurring event. #}
-      {% if more_dates %}
-        {% include "@components/button/button.twig" with {
-          'button': {
-            'modifier': 'button--link featured-card__more-dates',
-            'text': '+ more dates',
-            'url': cta.url
-          }
-        } only %}
-      {% endif %}
     </div>
 
     {% if readtime %}

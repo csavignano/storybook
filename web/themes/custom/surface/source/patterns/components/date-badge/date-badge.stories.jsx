@@ -20,7 +20,7 @@ export const Badge = {
 };
 
 export const BadgeSmall = {
-  name: 'Date badge',
+  name: 'Date badge small',
   render: (args) => badge(args),
   args: {
     ...data,
@@ -30,7 +30,7 @@ export const BadgeSmall = {
 
 export const BadgeLight = {
   ...Badge,
-  name: 'Light date badge',
+  name: 'Date badge light',
   args: {
     ...data,
     modifier: 'date-badge--light',

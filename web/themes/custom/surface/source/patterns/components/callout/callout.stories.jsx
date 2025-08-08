@@ -29,31 +29,4 @@ export const Reversed = {
   },
 };
 
-export const Quote = {
-  ...Stacked,
-  name: 'Callout Quote',
-  args: {
-    ...data,
-    modifier: 'is-quote',
-  },
-};
-
-export const QuoteHorizontal = {
-  ...Stacked,
-  name: 'Callout Quote Horizontal',
-  args: {
-    ...data,
-    modifier: 'is-quote is-horizontal',
-  },
-};
-
-export const HorizontalReversed = {
-  ...Stacked,
-  name: 'Callout Quote Horizontal Reversed',
-  args: {
-    ...data,
-    modifier: 'is-quote is-horizontal is-reversed',
-  },
-};
-
 export default settings;

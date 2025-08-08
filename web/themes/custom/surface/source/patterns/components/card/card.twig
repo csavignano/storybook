@@ -14,17 +14,6 @@
         } only %}
       {% endif %}
 
-      {# Logic for printing the type of content this card belongs to. #}
-      {% if date_short %}
-        {% set content_type = 'Event' %}
-      {% elseif date is not empty and date_short is empty %}
-        {% set content_type = 'Article' %}
-      {% elseif date is empty and date_short is empty %}
-        {% set content_type = 'Page' %}
-      {% endif %}
-      <div class="card__content-type">
-        {{ content_type }}
-      </div>
     </div>
   {% endif %}
 
@@ -73,19 +62,6 @@
           } %}
         {% endif %}
       </div>
-    {% endif %}
-
-
-    {# If there are upcoming instances of an event, display `+ more dates`
-    next to the event date to show users this is a recurring event. #}
-    {% if more_dates %}
-      {% include "@components/button/button.twig" with {
-        'button': {
-          'modifier': 'button--link card__more-dates',
-          'text': '+ more dates',
-          'url': title.url
-        }
-      } only %}
     {% endif %}
   </div>
 </article>

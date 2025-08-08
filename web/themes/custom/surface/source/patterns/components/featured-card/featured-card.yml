@@ -16,7 +16,7 @@ date:
   modifier: ''
   date: 'October 31, 2023 | 12:30 PM – 1:30 PM'
 cta:
-  modifier: 'button--secondary'
+  modifier: 'button--primary'
   text: 'Read the full article'
   url: '#'
 event_type: ''

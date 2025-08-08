@@ -26,20 +26,3 @@ h3 {
 h4 {
   font-size: clamp(var(--h4-min), 0.794rem + 0.882vw, var(--h4-max));
 }
-
-/* For demo purposes only while we define a working solution. /*
-/ * Per design specs. */
-.eyebrow-font-style {
-  font-size: var(--text-sm);
-  font-style: normal;
-  font-weight: var(--font-weight-800);
-  line-height: var(--leading-tight);
-  text-transform: uppercase;
-}
-
-/* Per new brand specs. */
-blockquote {
-  font-family: var(--font-secondary);
-  font-style: italic;
-  letter-spacing: var(--tracking-wide);
-}

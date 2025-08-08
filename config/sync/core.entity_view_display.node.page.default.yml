@@ -3,28 +3,22 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.page.field_content
+    - field.field.node.page.field_introduction
     - node.type.page
   module:
-    - entity_reference_revisions
+    - text
     - user
 id: node.page.default
 targetEntityType: node
 bundle: page
 mode: default
 content:
-  field_content:
-    type: entity_reference_revisions_entity_view
-    label: above
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    weight: 101
-    region: content
-  links:
+  field_introduction:
+    type: text_default
+    label: visually_hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 0
     region: content
-hidden: {  }
+hidden:
+  links: true
