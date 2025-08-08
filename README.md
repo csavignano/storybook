@@ -1,15 +1,37 @@
 # Local Development Requirements
-For training we have provided 2 different ways to be able to get up an running using either your host machine or using codespaces in the browser. The preferred way would be using your host computer to run DDEV and NVM.  Below are the directions on how to install DDEV and NVM.
 
-Before using this project, ensure you have the following requirements installed on your host machine:
+For this training, we’ve provided **two ways** to get your Drupal site running:
 
-## Install DDEV
+1. **On your own computer** (recommended) — using DDEV and NVM.
+2. **In your browser** — using GitHub Codespaces (no installation required).
 
-This project uses [DDEV](https://ddev.com/) for local development.
+We recommend running the project on your **own computer** so you can continue using it after training.
 
-If you do not already have DDEV installed, follow the instructions here:
-👉 [https://ddev.com/get-started/](https://ddev.com/get-started/)
+---
 
+## 1. Install DDEV
+
+We use [DDEV](https://ddev.com/) to quickly set up a local Drupal environment.
+
+**Steps:**
+1. Go to the DDEV installation guide:
+   👉 [https://ddev.com/get-started/](https://ddev.com/get-started/)
+2. Follow the instructions for your operating system (Mac, Windows, or Linux).
+3. Make sure **Docker Desktop** (or another Docker provider) is installed and running.
+4. Verify your installation by running this command in your terminal:
+
+   ```bash
+   ddev version
+
+If you see a version number, you’re good to go! 🎉
+
+## 2. Install NVM
+
+We use **NVM** to manage Node.js versions for frontend tooling.
+Upon successful installation of DDEV you will be able to run NVM within the container.  However NVM runs faster on the host computer so if you choose to install it you can take a look at one of the following guides.
+
+- https://betterstack.com/community/guides/scaling-nodejs/nvm-explained/?utm_source=chatgpt.com
+- https://www.freecodecamp.org/news/node-version-manager-nvm-install-guide/?utm_source=chatgpt.com
 
 
 # DDEV Drupal 11 Codespace
