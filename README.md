@@ -1,26 +1,16 @@
 # Local Development Requirements
+For training we have provided 2 different ways to be able to get up an running using either your host machine or using codespaces in the browser. The preferred way would be using your host computer to run DDEV and NVM.  Below are the directions on how to install DDEV and NVM.
 
 Before using this project, ensure you have the following requirements installed on your host machine:
 
-## Installing Node Version Manager (NVM)
+## Install DDEV
 
-1. Install NVM using curl:
-```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-```
+This project uses [DDEV](https://ddev.com/) for local development.
 
-2. Add these lines to your shell profile (`~/.zshrc` or `~/.bash_profile`):
-```bash
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-```
+If you do not already have DDEV installed, follow the instructions here:
+👉 [https://ddev.com/get-started/](https://ddev.com/get-started/)
 
-3. Reload your profile and verify installation:
-```bash
-source ~/.zshrc  # or source ~/.bash_profile
-nvm --version
-```
+
 
 # DDEV Drupal 11 Codespace
 
