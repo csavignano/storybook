@@ -1,0 +1,13 @@
+<?php
+ /**
+ * @file
+ * Functions to support theming in the Olivero theme.
+ */
+
+ function surface_preprocess_field(&$variables): void {
+  $rich_field_types = ['text_with_summary', 'text', 'text_long'];
+
+  if (in_array($variables['field_type'], $rich_field_types, TRUE)) {
+    $variables['attributes']['class'][] = 'prose';
+  }
+}

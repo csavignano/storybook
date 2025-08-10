@@ -6,7 +6,8 @@ global:
       dist/css/utilities.css: {}
     component:
       dist/css/button.css: {}
-
+    theme:
+      dist/css/admin.css: {}
 card:
   css:
     component:

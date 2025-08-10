@@ -1,4 +1,6 @@
-# Local Development Requirements
+# Getting Started
+
+This project uses DDEV for a consistent and easy-to-use local development environment and NVM to manage Node.js versions.
 
 For this training, we’ve provided **two ways** to get your Drupal site running:
 
@@ -8,50 +10,56 @@ For this training, we’ve provided **two ways** to get your Drupal site running
 We recommend running the project on your **own computer** so you can continue using it after training.
 
 ---
+## On your own computer
 
 ## 1. Install DDEV
 
-We use [DDEV](https://ddev.com/) to quickly set up a local Drupal environment.
+DDEV provides a quick way to set up a local Drupal environment.
+1. Follow the official installation guide:
+Go to the [DDEV Get Started page](https://ddev.com/get-started/) and follow the instructions for your operating system (macOS, Windows, or Linux).
 
-**Steps:**
-1. Go to the DDEV installation guide:
-   👉 [https://ddev.com/get-started/](https://ddev.com/get-started/)
-2. Follow the instructions for your operating system (Mac, Windows, or Linux).
-3. Make sure **Docker Desktop** (or another Docker provider) is installed and running.
-4. Verify your installation by running this command in your terminal:
+#### For Windows Users
+
+For an excellent step-by-step video walk-through, you can watch this guide on setting up DDEV with Windows WSL2: [Watch: DDEV Local from scratch with Windows WSL2](https://ddev.com/blog/watch-ddev-local-from-scratch-with-windows-wsl2/)
+
+2. Verify your installation by running this command in your terminal:
 
    ```bash
    ddev version
-
 If you see a version number, you’re good to go! 🎉
 
-## 2. Install NVM
+### 2. Install NVM (Node Version Manager)
 
-We use **NVM** to manage Node.js versions for frontend tooling.
-Upon successful installation of DDEV you will be able to run NVM within the container.  However NVM runs faster on the host computer so if you choose to install it you can take a look at one of the following guides.
+We use NVM to manage the different Node.js versions required for frontend tooling.
 
-- https://betterstack.com/community/guides/scaling-nodejs/nvm-explained/?utm_source=chatgpt.com
-- https://www.freecodecamp.org/news/node-version-manager-nvm-install-guide/?utm_source=chatgpt.com
+**Note:** You can run NVM within the DDEV container, but for a faster experience, we recommend installing it directly on your host machine.
 
+You can find excellent installation guides here:
+
+* [NVM Explained - Better Stack](https://betterstack.com/community/guides/scaling-nodejs/nvm-explained/)
+* [Node Version Manager (NVM) Install Guide - freeCodeCamp](https://www.freecodecamp.org/news/node-version-manager-nvm-install-guide/)
 ---
 
-# DDEV Drupal 11 Codespace
+# In your browser
 
-This GitHub Codespace provides a complete DDEV development environment for your existing Drupal 11 project with automated data import via DDEV hooks.
+This GitHub Codespace gives you a complete DDEV development environment for your Drupal 11 project. It even handles automated data import for you!
 
-## Quick Start
+### Before You Begin
 
-1. **Open in Codespace**: Click the "Create codespace" button or use the GitHub CLI
-2. **Wait for Setup**: The devcontainer will automatically install DDEV and verify your project structure
-3. **Start DDEV**:
-   ```bash
-   ddev start
-   ```
-   Your DDEV hooks will automatically:
-   - Import database from `db/site.sql.gz`
-   - Import configuration from `config/sync/`
-   - Clear cache
+1.  **Fork this Repository:**
+    Before you start, please fork this repository to your own GitHub account:
+    👉 [https://github.com/chazchumley/storybook](https://github.com/chazchumley/storybook)
 
+### Quick Start
+
+1.  **Open the Codespace**:
+    On your forked repository page, click the green **`<> Code`** button. From the dropdown menu, click **Create codespace on main**.
+2.  **Wait for the Magic**: The devcontainer will automatically set everything up for you, including installing DDEV and verifying your project structure. **This process may take 10-15 minutes the first time you run it, so please be patient.** You'll be ready to start coding in no time!
+3. **Start the DDEV Project**:
+    Once the Codespace has loaded, open the terminal in your browser (it should be at the bottom of the VS Code window) and run the following command to start your project:
+
+    ```bash
+    ddev start
 4. **Access Your Site**: The site will be available at port 8080 (auto-opens in browser)
 
 ## Your Project Structure

@@ -17,7 +17,13 @@
 	},
 	"customizations": {
 		"vscode": {
-			"extensions": ["esbenp.prettier-vscode", "ms-vscode.vscode-json"]
+			"extensions": [
+				"esbenp.prettier-vscode",
+				"ms-vscode.vscode-json",
+				"s-s-x.vscode-postcss",
+				"mblode.twig-language-2",
+				"h-a-n.css-class-intellisense"
+			]
 		}
 	},
 	"forwardPorts": [8080, 8036],

@@ -8,7 +8,6 @@ to expand full width holding a left/right padding of 16px until they reach 1376p
 After this point, the padding is removed and the selectors will not expand
 any wider and they will be center-aligned to the page. */
 .container {
-  margin-inline: auto;
   max-inline-size: var(--size-max-content-width); /* 1376px */
   padding-inline: var(--size-4);
 

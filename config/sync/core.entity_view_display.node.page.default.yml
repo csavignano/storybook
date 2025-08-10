@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.page.field_introduction
+    - field.field.node.page.field_teaser
     - node.type.page
   module:
     - text
@@ -13,7 +13,7 @@ targetEntityType: node
 bundle: page
 mode: default
 content:
-  field_introduction:
+  field_teaser:
     type: text_default
     label: visually_hidden
     settings: {  }
