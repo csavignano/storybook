@@ -1,0 +1,17 @@
+.alert {
+    background-color: var(--blue-700);
+    border-color: var(--blue-100);
+    border-radius: var(--radius-2);
+    padding-block: var(--size-4);
+    padding-inline: var(--size-6);
+
+}
+
+.alert__content{
+    color: var(--blue-100);
+}
+
+.alert--danger{
+    background-color: var(--red-700);
+    border-color: var(--red-100);
+}

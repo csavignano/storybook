@@ -1,0 +1,28 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as AlertStories from './alert.stories';
+
+<Meta of={AlertStories} />
+
+# Alert
+
+The Alert component is widely used and provides several variations.
+
+## Alert technical specs
+
+* `icon` is an optional property allowing us to attach an icon as needed.
+* `modifier` makes it possible to pass a CSS modifier class which in turn can change the button's appearance as you see the examples below.
+* `text` is the label of the button.
+* `url` is also an optional property which determines if we use a `<button>` or an `<a>` element based on the presence of the `url`.
+
+### Default Alert
+
+The default variation of the Alert is mostly used to perform secondary tasks such as **Cancel**, **Reset**, and others.
+
+<Canvas of={AlertStories.Alert} />
+
+### Alert dangeer
+
+The Danger follows UCLA's branding guidelines and it's mostly use to perform important or primary tasks such as **Submit**, **Add**, **Save**, and others.
+
+<Canvas of={AlertStories.Danger} />
+
